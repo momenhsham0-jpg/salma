@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إلى حبيبتي سلمى | وعد العمر 8 فبراير</title>
+    <!-- استيراد خط تجوال وأميري لإضفاء طابع عربي راقي ورومانسي -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <!-- مكتبة Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                        serif: ['Amiri', 'serif'],
+                    },
+                    colors: {
+                        roseSoft: '#1e101c',
+                        roseWarm: '#2a1324',
+                        goldAccent: '#d4af37',
+                        deepBurgundy: '#fb7185',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* تنسيقات مخصصة للحركات والتأثيرات البصرية */
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            background-color: #070913;
+        }
+
+        /* تأثير نبض القلب للزر */
+        @keyframes pulseGlow {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 20px rgba(244, 63, 94, 0.6), 0 0 40px rgba(251, 191, 36, 0.4);
+            }
+            50% {
+                transform: scale(1.06);
+                box-shadow: 0 0 35px rgba(244, 63, 94, 0.9), 0 0 60px rgba(251, 191, 36, 0.7);
+            }
+        }
+
+        .btn-romantic-pulse {
+            animation: pulseGlow 2.2s infinite ease-in-out;
+        }
+
+        /* تأثير الطفو الهادئ للصورة والقلوب */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating-element {
+            animation: floatSlow 4.5s ease-in-out infinite;
+        }
+
+        /* تأثير دوران الإطار الذهبي حول الصورة */
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .ring-spin {
+            animation: spinSlow 25s linear infinite;
+        }
+
+        /* ظهور العناصر عند التمرير */
+        .reveal-section {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal-section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* خلفية الصفحة الثانية الليلية الغامقة والهادئة */
+        .calm-bg {
+            background: radial-gradient(circle at top center, #1f1124 0%, #100c1d 45%, #070913 100%);
+        }
+
+        /* تأثير الزجاج المصنفر الداكن الفاخر */
+        .glass-card {
+            background: rgba(24, 18, 36, 0.78);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(251, 113, 133, 0.24);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+        }
+
+        /* حركة تطاير القلوب عند اللمس */
+        @keyframes clickHeartFly {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -140px) scale(1.4) rotate(25deg);
+            }
+        }
+
+        .click-heart {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            animation: clickHeartFly 1.2s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-[#070913] text-slate-100 antialiased selection:bg-rose-500/30 selection:text-rose-200">
+
+    <!-- ===================================================================== -->
+    <!-- المرحلة الأولى: مشهد السماء الصافية والنجوم والألعاب النارية باسم سلمى -->
+    <!-- ===================================================================== -->
+    <section id="intro-sky" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-b from-[#040714] via-[#091029] to-[#111936] transition-opacity duration-1000">
+        <!-- لوحة رسم النجوم والألعاب النارية -->
+        <canvas id="fireworks-canvas" class="absolute inset-0 w-full h-full block"></canvas>
+
+        <!-- شريط تنبيه لتفعيل صوت الفرقعة القوي بلمسة واحدة -->
+        <div id="sound-prompt-banner" class="absolute top-6 left-1/2 -translate-x-1/2 z-30 bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-400/40 px-5 py-2.5 rounded-full text-xs sm:text-sm backdrop-blur-md cursor-pointer flex items-center gap-2 transition-all shadow-lg animate-pulse whitespace-nowrap">
+            <span>🔊</span>
+            <span>المسي الشاشة لسماع صوت فرقعة الصواريخ</span>
+        </div>
+
+        <!-- حاوية الزر الذي يظهر بعد اكتمال الألعاب النارية -->
+        <div id="enter-btn-container" class="relative z-10 mt-64 sm:mt-72 opacity-0 pointer-events-none transition-all duration-1000 transform translate-y-6 flex flex-col items-center px-4 text-center">
+            <p class="text-amber-200/90 text-sm sm:text-base mb-4 font-light tracking-wide">
+                السما النهاردة بتحتفل بيكي يا أجمل ما في عمري ✨
+            </p>
+            <button id="enter-site-btn" class="btn-romantic-pulse bg-gradient-to-r from-rose-500 via-pink-500 to-amber-500 text-white font-bold text-lg sm:text-xl px-10 py-4 rounded-full shadow-2xl border border-white/30 cursor-pointer flex items-center gap-3 active:scale-95 transition-transform">
+                <span>دوسي هنا يا سلمى</span>
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- زر إعادة الألعاب النارية -->
+        <button id="replay-fireworks-btn" class="hidden absolute bottom-6 left-6 z-20 text-xs text-white/70 hover:text-white bg-white/10 px-3.5 py-2 rounded-full backdrop-blur-sm border border-white/15 transition cursor-pointer">
+            إعادة الصواريخ 🎆
+        </button>
+
+        <!-- زر تفعيل/كتم صوت الألعاب النارية -->
+        <button id="toggle-fw-sound-btn" class="absolute bottom-6 right-6 z-20 text-xs text-amber-200/90 hover:text-white bg-white/10 px-3.5 py-2 rounded-full backdrop-blur-sm border border-white/15 transition flex items-center gap-1.5 cursor-pointer">
+            <span id="fw-sound-icon">🔊</span>
+            <span id="fw-sound-text">صوت الفرقعة</span>
+        </button>
+    </section>
+
+    <!-- مشغل الأغنية الرومانسية للصفحة الثانية -->
+    <audio id="bg-music" preload="auto" loop>
+        <source src="https://videotourl.com/audio/1795037332338-6b43b770-460b-4bf5-98b3-ab9771f2dd64.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- ===================================================================== -->
+    <!-- المرحلة الثانية: الصفحة الرئيسية الليلية الغامقة والرومانسية           -->
+    <!-- ===================================================================== -->
+    <main id="main-content" class="hidden opacity-0 transition-opacity duration-1000 calm-bg min-h-screen relative overflow-hidden">
+        
+        <!-- زر عائم للتحكم في الأغنية داخل الصفحة الرئيسية -->
+        <button id="music-control-btn" class="fixed bottom-5 right-5 z-40 glass-card px-4 py-2.5 rounded-full shadow-lg border border-rose-500/30 flex items-center gap-2 text-rose-200 text-xs sm:text-sm font-bold hover:scale-105 active:scale-95 transition-all cursor-pointer">
+            <span id="music-icon" class="text-base animate-pulse">🎵</span>
+            <span id="music-status-text">الأغنية شغالة</span>
+        </button>
+
+        <!-- بتلات وقلوب خفيفة تتطاير في الخلفية لإعطاء جو هادئ ورومانسي -->
+        <div id="floating-hearts-bg" class="fixed inset-0 pointer-events-none z-0 overflow-hidden"></div>
+
+        <!-- ===================================================================== -->
+        <!-- القسم الأول: الصورة المدورة الكبيرة والكلمة الرومانسية العميقة        -->
+        <!-- ===================================================================== -->
+        <section class="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-16 sm:py-20 max-w-4xl mx-auto text-center">
+            
+            <!-- شارة ترحيبية صغيرة -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-950/80 text-rose-300 text-xs sm:text-sm font-medium mb-8 shadow-md border border-rose-500/30">
+                <span>❤️</span>
+                <span>إلى نبض قلبي.. سلمى</span>
+            </div>
+
+            <!-- إطار الصورة المدورة الكبيرة مع تأثيرات الإضاءة -->
+            <div class="relative mb-10 floating-element">
+                <!-- هالة ضوئية ناعمة خلف الصورة -->
+                <div class="absolute -inset-4 rounded-full bg-gradient-to-tr from-rose-600/40 via-amber-500/30 to-purple-600/40 opacity-80 blur-2xl"></div>
+                
+                <!-- إطار ذهبي منقط يدور ببطء -->
+                <div class="ring-spin absolute -inset-3 rounded-full border-2 border-dashed border-amber-400/60 pointer-events-none"></div>
+                
+                <!-- حاوية الصورة الدائرية الثابتة -->
+                <div class="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full p-2 bg-gradient-to-b from-amber-400/40 via-rose-900/60 to-slate-900 shadow-2xl overflow-hidden">
+                    <img 
+                        id="couple-photo"
+                        src="https://cdn.phototourl.com/anon/2026-11-18-0c2cdd25-145f-44bf-a1dc-f00a29a42d54.jpg" 
+                        onerror="this.onerror=null; this.src='https://placehold.co/600x600/2a1324/fda4af?text=أنا+وإنتي+❤️';"
+                        alt="صورتي أنا وحبيبتي سلمى" 
+                        class="w-full h-full object-cover object-top rounded-full shadow-inner border-2 border-amber-300/40 transition-transform duration-500 hover:scale-105"
+                    />
+                </div>
+
+                <!-- أيقونة قلب صغيرة أسفل الإطار -->
+                <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-[#1a1125] px-4 py-1 rounded-full shadow-lg border border-rose-500/40 flex items-center gap-1.5 whitespace-nowrap">
+                    <span class="text-rose-400 text-sm">♥</span>
+                    <span class="text-xs font-bold text-amber-200">أنا وإنتي وبس</span>
+                    <span class="text-rose-400 text-sm">♥</span>
+                </div>
+            </div>
+
+            <!-- الكلمة الرومانسية العميقة باللهجة المصرية -->
+            <div class="glass-card rounded-3xl p-6 sm:p-10 shadow-2xl max-w-2xl mx-auto border border-rose-500/25">
+                <h1 class="font-serif text-2xl sm:text-4xl font-bold text-amber-300 mb-5 leading-relaxed">
+                    "يا سلمى.. إنتي مش بس حبيبتي، إنتي رزقي الحلو في الدنيا دي"
+                </h1>
+                <p class="text-slate-200 text-base sm:text-lg leading-loose font-normal">
+                    عارفة يا سلمى؟ من يوم ما دخلتي حياتي وكل حاجة فيها بقى ليها طعم ومعنى تاني. 
+                    ضحكتك هي اللي بتهون عليا تعب الدنيا، ووجودك جنبي هو الأمان اللي كنت بدور عليه طول عمري. 
+                    كل ما ببص في صورتنا دي بتأكد إني أخدت أحلى قرار في حياتي لما اخترتك، 
+                    ومستني اليوم اللي تبقي فيه حلالي قدام الدنيا كلها بفارغ الصبر.. بحبك فوق ما تتخيلي ❤️
+                </p>
+            </div>
+
+            <!-- مؤشر السحب لأسفل -->
+            <div class="mt-12 flex flex-col items-center text-rose-300/80 animate-bounce">
+                <span class="text-xs font-medium mb-1">اسحبي الشاشة لتحت.. لسه في مفاجآت</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- ===================================================================== -->
+        <!-- القسم الثاني: العداد التنازلي الاحترافي ليوم 8 فبراير                 -->
+        <!-- ===================================================================== -->
+        <section class="reveal-section relative z-10 py-14 px-4 max-w-4xl mx-auto">
+            <div class="glass-card rounded-3xl p-8 sm:p-12 text-center border border-amber-400/35 relative overflow-hidden">
+                <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-amber-500/15 text-amber-300 text-xs sm:text-sm font-bold mb-4 border border-amber-400/30">
+                    <span>💍</span>
+                    <span>العد التنازلي لأجمل يوم في عمري</span>
+                </div>
+
+                <h2 class="font-serif text-2xl sm:text-4xl font-bold text-rose-200 mb-3">
+                    باقي على يوم ما آجي أتقدملك رسمي يا سلمى
+                </h2>
+                <p class="text-amber-300/90 text-sm sm:text-base font-medium mb-8">
+                    موعدنا المنتظر: يوم 8 فبراير ❤️
+                </p>
+
+                <!-- مربعات العداد التنازلي المتحركة -->
+                <div class="grid grid-cols-4 gap-2 sm:gap-5 max-w-xl mx-auto">
+                    <div class="bg-[#120d1d] rounded-2xl p-3 sm:p-5 border border-rose-500/30 shadow-inner">
+                        <span id="cd-days" class="block text-2xl sm:text-4xl font-extrabold text-amber-400 tabular-nums">00</span>
+                        <span class="text-xs sm:text-sm text-rose-200/80 mt-1 block">يوم</span>
+                    </div>
+                    <div class="bg-[#120d1d] rounded-2xl p-3 sm:p-5 border border-rose-500/30 shadow-inner">
+                        <span id="cd-hours" class="block text-2xl sm:text-4xl font-extrabold text-rose-400 tabular-nums">00</span>
+                        <span class="text-xs sm:text-sm text-rose-200/80 mt-1 block">ساعة</span>
+                    </div>
+                    <div class="bg-[#120d1d] rounded-2xl p-3 sm:p-5 border border-rose-500/30 shadow-inner">
+                        <span id="cd-minutes" class="block text-2xl sm:text-4xl font-extrabold text-amber-400 tabular-nums">00</span>
+                        <span class="text-xs sm:text-sm text-rose-200/80 mt-1 block">دقيقة</span>
+                    </div>
+                    <div class="bg-[#120d1d] rounded-2xl p-3 sm:p-5 border border-rose-500/30 shadow-inner">
+                        <span id="cd-seconds" class="block text-2xl sm:text-4xl font-extrabold text-rose-400 tabular-nums">00</span>
+                        <span class="text-xs sm:text-sm text-rose-200/80 mt-1 block">ثانية</span>
+                    </div>
+                </div>
+
+                <p class="mt-7 text-slate-300 text-xs sm:text-sm leading-relaxed">
+                    كل ثانية بتعدي بتقربني خطوة من اللحظة اللي هدخل فيها بيتكم وأطلب إيدك قدام الدنيا كلها ✨
+                </p>
+            </div>
+        </section>
+
+        <!-- ===================================================================== -->
+        <!-- القسم الثالث: كبسولات السعادة (افتحي الظرف والكلام يظهر جواه مباشرة)  -->
+        <!-- ===================================================================== -->
+        <section class="reveal-section relative z-10 py-14 px-4 max-w-4xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-amber-400 text-xs sm:text-sm font-bold tracking-wider">مفاجآت من قلبي ليكي</span>
+                <h2 class="font-serif text-2xl sm:text-4xl font-bold text-rose-200 mt-1">
+                    دوسي على كل ظرف عشان يتفتح وتقري اللي جواه 💌
+                </h2>
+                <p class="text-slate-400 text-xs sm:text-sm mt-2">كل ظرف شايل جواه حتة من قلبي وكلام طالع ليكي لوحدك</p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-6">
+                <!-- الظرف الأول -->
+                <div class="envelope-card glass-card rounded-3xl p-6 sm:p-8 text-right border border-rose-500/30 hover:border-amber-400/60 transition-all duration-500 cursor-pointer shadow-xl" onclick="toggleEnvelope(this)">
+                    <div class="flex items-center justify-between gap-4">
+                        <div>
+                            <span class="inline-block px-3 py-0.5 rounded-full bg-rose-500/20 text-rose-300 text-xs font-bold mb-2">الظرف الأول • دوسي لفتحه</span>
+                            <h3 class="text-lg sm:text-2xl font-bold text-slate-100">افتحيه لما أوحشك في أي لحظة 🥺❤️</h3>
+                        </div>
+                        <span class="envelope-icon text-4xl sm:text-5xl transition-transform duration-500">✉️</span>
+                    </div>
+                    <div class="envelope-body hidden mt-6 pt-6 border-t border-rose-500/25 bg-gradient-to-br from-rose-950/60 to-amber-950/35 rounded-2xl p-5 sm:p-7">
+                        <p class="font-serif text-xl sm:text-2xl font-bold text-amber-300 mb-3">"إنتي معايا في كل نفس باخده يا سلمى.."</p>
+                        <p class="text-slate-200 text-base sm:text-lg leading-loose font-normal">
+                            عارفة يا سلمى؟ ساعات كتير ببقى وسط الناس وبتكلم وبضحك، بس عقلي وقلبي بيكونوا معاكي إنتي وبس. 
+                            لما أوحشك في أي وقت، حطي إيدك على قلبك وافتكري إن في راجل في الدنيا دي بيدعيلك في كل صلاة، وبيفكر فيكي قبل ما ينام وأول ما يصحى، 
+                            وبيعد الساعات والدقايق عشان يشوف ضحكتك أو يسمع صوتك اللي بيرد فيه الروح. إنتي مش بعيدة عني أبداً يا حبيبتي، إنتي ساكنة جوه وريدي، 
+                            وكل ما بتوحشيني بحس إن روحي بتتسحب مني لحد ما أسمع كلمة واحدة منك تطمني وتردلي الحياة تاني. بحبك حب ملوش أول ولا آخر يا نور عيني.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- الظرف الثاني -->
+                <div class="envelope-card glass-card rounded-3xl p-6 sm:p-8 text-right border border-rose-500/30 hover:border-amber-400/60 transition-all duration-500 cursor-pointer shadow-xl" onclick="toggleEnvelope(this)">
+                    <div class="flex items-center justify-between gap-4">
+                        <div>
+                            <span class="inline-block px-3 py-0.5 rounded-full bg-rose-500/20 text-rose-300 text-xs font-bold mb-2">الظرف الثاني • دوسي لفتحه</span>
+                            <h3 class="text-lg sm:text-2xl font-bold text-slate-100">افتحيه لو في حاجة مضايقاكي أو مزعلاكي 🤍🫂</h3>
+                        </div>
+                        <span class="envelope-icon text-4xl sm:text-5xl transition-transform duration-500">✉️</span>
+                    </div>
+                    <div class="envelope-body hidden mt-6 pt-6 border-t border-rose-500/25 bg-gradient-to-br from-rose-950/60 to-amber-950/35 rounded-2xl p-5 sm:p-7">
+                        <p class="font-serif text-xl sm:text-2xl font-bold text-amber-300 mb-3">"الدنيا كلها فدا ضحكة واحدة من عيونك.."</p>
+                        <p class="text-slate-200 text-base sm:text-lg leading-loose font-normal">
+                            حقك عليا من أي حاجة في الدنيا دي ممكن تكدر خاطرك أو تخلي عينك الحلوة تدمع. 
+                            إنتي أغلى عند ربنا وعندي من إنك تشيلي هم أي حاجة لوحدك؛ أنا ربنا خلقني في حياتك عشان أكون سندك وضهرك والكتف اللي تسندي عليه لما الدنيا تتقل عليكي. 
+                            أي مشكلة أو زعل بيعدي عليكي أنا بشيله عنك بروحي وقلبي، ومستعد أقف قدام الدنيا بحالها عشان أشوفك مرتاحة ومبسوطة وبتضحكي من قلبك. 
+                            امسحي أي زعل دلوقتي وافتكري إنك ملكة متوجة جوه قلبي، وإن طول ما أنا عايش مش هسمح لحاجة تكسر فرحتك أبداً يا أغلى ما ليا.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- الظرف الثالث -->
+                <div class="envelope-card glass-card rounded-3xl p-6 sm:p-8 text-right border border-rose-500/30 hover:border-amber-400/60 transition-all duration-500 cursor-pointer shadow-xl" onclick="toggleEnvelope(this)">
+                    <div class="flex items-center justify-between gap-4">
+                        <div>
+                            <span class="inline-block px-3 py-0.5 rounded-full bg-rose-500/20 text-rose-300 text-xs font-bold mb-2">الظرف الثالث • دوسي لفتحه</span>
+                            <h3 class="text-lg sm:text-2xl font-bold text-slate-100">افتحيه لما تحبي تعرفي غلاوتك الحقيقية في قلبي 👑✨</h3>
+                        </div>
+                        <span class="envelope-icon text-4xl sm:text-5xl transition-transform duration-500">✉️</span>
+                    </div>
+                    <div class="envelope-body hidden mt-6 pt-6 border-t border-rose-500/25 bg-gradient-to-br from-rose-950/60 to-amber-950/35 rounded-2xl p-5 sm:p-7">
+                        <p class="font-serif text-xl sm:text-2xl font-bold text-amber-300 mb-3">"إنتي مش مجرد حبيبة.. إنتي عمري كله اللي جاي"</p>
+                        <p class="text-slate-200 text-base sm:text-lg leading-loose font-normal">
+                            لو قعدت أكتبلك سنين طويلة عمري ما هعرف أوصفلك إنتي إيه بالنسبة لي يا سلمى. 
+                            إنتي العوض الجميل اللي ربنا جبر بيه خاطري بعد طول صبر، وإنتي البنت اللي خلتني أشوف الدنيا بعين تانية كلها أمل وحياة. 
+                            بحب فيكي طيبة قلبك اللي مفيش زيها، وبحب براءتك، وبحب عصبيتك الصغيرة اللي بتتحول لضحكة في ثانية، وبحب حنيتك وخوفك عليا. 
+                            إنتي بالنسبة لي أمي التانية، وبنتي اللي بخاف عليها من الهوا الطاير، وصحبتي اللي بحكيلها كل أسراري من غير خوف، وشريكة عمري اللي نفسي أعجز معاها وإيدينا في إيد بعض.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- الظرف الرابع -->
+                <div class="envelope-card glass-card rounded-3xl p-6 sm:p-8 text-right border border-rose-500/30 hover:border-amber-400/60 transition-all duration-500 cursor-pointer shadow-xl" onclick="toggleEnvelope(this)">
+                    <div class="flex items-center justify-between gap-4">
+                        <div>
+                            <span class="inline-block px-3 py-0.5 rounded-full bg-rose-500/20 text-rose-300 text-xs font-bold mb-2">الظرف الرابع • دوسي لفتحه</span>
+                            <h3 class="text-lg sm:text-2xl font-bold text-slate-100">افتحيه وإنتي بتحلمي بيوم 8 فبراير وحياتنا سوا 💍🌹</h3>
+                        </div>
+                        <span class="envelope-icon text-4xl sm:text-5xl transition-transform duration-500">✉️</span>
+                    </div>
+                    <div class="envelope-body hidden mt-6 pt-6 border-t border-rose-500/25 bg-gradient-to-br from-rose-950/60 to-amber-950/35 rounded-2xl p-5 sm:p-7">
+                        <p class="font-serif text-xl sm:text-2xl font-bold text-amber-300 mb-3">"يوم 8 فبراير.. اليوم اللي هقول فيه للدنيا كلها إنتي بتاعتي"</p>
+                        <p class="text-slate-200 text-base sm:text-lg leading-loose font-normal">
+                            يا سلمى، اللحظة اللي مستنيها من أول يوم حبيتك فيه قربت خلاص. يوم 8 فبراير ده مش مجرد تاريخ في النتيجة، 
+                            ده اليوم اللي هدخل فيه بيتكم وأنا رافع راسي لفوق وفخور إني بطلب إيد أنضف وأجمل وأغلى بنت في الدنيا. 
+                            بتخيل اللحظة اللي هلبسك فيها الدبلة وأبص في عينك وأقولك أخيراً بقيتي حلالي وقدام الناس كلها. 
+                            أوعدك قدام ربنا إني هصونك وأكرمك وأبني معاكي بيت مليان حب ورحمة وضحك، وإن كل يوم هنعيشه سوا هيكون أحلى من اللي قبله يا أجمل عروسة في الكون.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================== -->
+        <!-- القسم الرابع: 30 سبب يخليني أعشقك بجنون يا سلمى                      -->
+        <!-- ===================================================================== -->
+        <section class="reveal-section relative z-10 py-14 px-4 max-w-4xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-amber-400 text-xs sm:text-sm font-bold tracking-wider">من قلبي ليكي</span>
+                <h2 class="font-serif text-2xl sm:text-4xl font-bold text-rose-200 mt-1">
+                    30 سبب يخليني أعشقك بجنون يا سلمى ❤️✨
+                </h2>
+                <p class="text-slate-400 text-xs sm:text-sm mt-2">كل نقطة من دول حكاية وحقيقة عايشها معاكي كل يوم</p>
+            </div>
+
+            <!-- حاوية الـ 30 سبب يتم توليدها بأناقة عبر JavaScript -->
+            <div id="reasons-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+
+            <!-- زر إظهار باقي الأسباب لتسهيل التصفح -->
+            <div class="text-center mt-8">
+                <button id="toggle-reasons-btn" class="bg-gradient-to-r from-rose-600/40 to-amber-600/40 hover:from-rose-600/60 hover:to-amber-600/60 text-amber-200 border border-amber-400/40 px-8 py-3 rounded-full font-bold text-sm sm:text-base transition-all shadow-lg cursor-pointer">
+                    اعرضي باقي الـ 30 سبب كلهم 🌹
+                </button>
+            </div>
+        </section>
+
+        <!-- ===================================================================== -->
+        <!-- القسم الخامس: مقياس حبك في قلبي التفاعلي                            -->
+        <!-- ===================================================================== -->
+        <section class="reveal-section relative z-10 py-14 px-4 max-w-3xl mx-auto">
+            <div class="glass-card rounded-3xl p-8 sm:p-10 text-center border border-rose-500/30">
+                <h2 class="font-serif text-2xl sm:text-3xl font-bold text-amber-300 mb-2">
+                    عايزة تعرفي بحبك قد إيه؟ 💓
+                </h2>
+                <p class="text-slate-400 text-sm mb-6">دوسي على القلب وشوفي العداد هيوصل لفين!</p>
+
+                <div class="max-w-md mx-auto mb-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-xs text-rose-300 font-bold">نسبة حبك في قلبي</span>
+                        <span id="love-meter-value" class="text-xl font-extrabold text-amber-400">100%</span>
+                    </div>
+                    <div class="w-full h-4 bg-slate-950 rounded-full overflow-hidden p-0.5 border border-rose-500/30">
+                        <div id="love-meter-bar" class="h-full bg-gradient-to-r from-rose-600 via-pink-500 to-amber-400 rounded-full transition-all duration-300" style="width: 35%;"></div>
+                    </div>
+                </div>
+
+                <button id="boost-love-btn" class="bg-rose-600/30 hover:bg-rose-600/50 text-rose-200 border border-rose-400/50 px-7 py-3 rounded-full font-bold text-base transition-all active:scale-90 cursor-pointer shadow-lg">
+                    دوسي هنا عشان تزودي العداد ❤️
+                </button>
+                <p id="love-meter-msg" class="mt-4 text-sm sm:text-base text-amber-200 font-medium min-h-[24px]"></p>
+            </div>
+        </section>
+
+        <!-- ===================================================================== -->
+        <!-- القسم السادس: طلب العمر التفاعلي (تقبلي تكملي معايا باقي حياتي؟)    -->
+        <!-- ===================================================================== -->
+        <section class="reveal-section relative z-10 py-16 px-4 max-w-3xl mx-auto">
+            <div class="glass-card rounded-3xl p-8 sm:p-12 text-center border-2 border-amber-400/40 relative overflow-hidden">
+                <div class="text-4xl mb-4">💍✨</div>
+                <h2 class="font-serif text-2xl sm:text-4xl font-bold text-amber-300 mb-4 leading-snug">
+                    يا سلمى.. تقبلي تبقي شريكة عمري وحلالي طول الحياة؟
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base mb-8">
+                    اختاري إجابتك بكل صراحة (بس خلي بالك الزرار التاني بيخاف منك 😄)
+                </p>
+
+                <div id="proposal-buttons" class="flex flex-wrap items-center justify-center gap-4 min-h-[70px] relative">
+                    <button id="yes-forever-btn" class="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-extrabold text-lg px-9 py-4 rounded-full shadow-xl shadow-emerald-950/60 transform hover:scale-105 active:scale-95 transition-all cursor-pointer z-10">
+                        أوافق طبعاً يا حبيبي ❤️
+                    </button>
+
+                    <button id="no-runaway-btn" class="bg-slate-800 text-slate-400 border border-slate-600 font-bold text-sm px-6 py-3 rounded-full transition-all duration-200 cursor-pointer">
+                        لأ مش موافقة 🙈
+                    </button>
+                </div>
+
+                <!-- نتيجة الموافقة الاحتفالية + شهادة ملكة قلبي -->
+                <div id="proposal-accepted-box" class="hidden mt-8 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-amber-500/20 via-rose-600/20 to-purple-900/30 border-2 border-amber-300/60 shadow-2xl">
+                    <div class="text-5xl mb-3">👰‍♀️🤵‍♂️💖</div>
+                    <span class="inline-block px-4 py-1 rounded-full bg-amber-400/20 text-amber-300 text-xs font-bold mb-2">وثيقة حب أبدية رسمية</span>
+                    <h3 class="font-serif text-2xl sm:text-3xl font-bold text-amber-300 mb-3">
+                        أجمل "أوافق" سمعتها في حياتي كلها!
+                    </h3>
+                    <p class="text-slate-200 text-sm sm:text-base leading-relaxed mb-4">
+                        من اللحظة دي وإنتي رسمياً <strong>ملكة قلبي وعروسة يوم 8 فبراير</strong>.. 
+                        أوعدك قدام ربنا إني هخليكي أسعد بنت في الدنيا دي كلها يا سلمى! ❤️✨
+                    </p>
+                    <div class="text-xs text-amber-200/80 border-t border-amber-400/30 pt-3">
+                        التوقيع: حبيبك اللي بيعشق تراب رجليكي 💍
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- تذييل الصفحة -->
+        <footer class="relative z-10 py-10 text-center text-slate-400 text-xs sm:text-sm">
+            <p class="font-medium text-rose-300/90">صُنع بكل حب خصيصاً لـ سلمى ❤️</p>
+            <p class="mt-1 text-slate-500">موعدنا المميز: 8 فبراير ✨</p>
+        </footer>
+    </main>
+
+    <!-- ===================================================================== -->
+    <!-- البرمجة الكاملة: الألعاب النارية باسم سلمى + صوت الفرقعة + التفاعلات -->
+    <!-- ===================================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const canvas = document.getElementById('fireworks-canvas');
+            const ctx = canvas.getContext('2d');
+            const enterBtnContainer = document.getElementById('enter-btn-container');
+            const enterSiteBtn = document.getElementById('enter-site-btn');
+            const replayBtn = document.getElementById('replay-fireworks-btn');
+            const introSky = document.getElementById('intro-sky');
+            const mainContent = document.getElementById('main-content');
+            const bgMusic = document.getElementById('bg-music');
+            const musicControlBtn = document.getElementById('music-control-btn');
+            const musicIcon = document.getElementById('music-icon');
+            const musicStatusText = document.getElementById('music-status-text');
+            const toggleFwSoundBtn = document.getElementById('toggle-fw-sound-btn');
+            const fwSoundIcon = document.getElementById('fw-sound-icon');
+            const fwSoundText = document.getElementById('fw-sound-text');
+            const soundPromptBanner = document.getElementById('sound-prompt-banner');
+
+            let width, height;
+            let stars = [];
+            let rockets = [];
+            let particles = [];
+            let nameParticles = [];
+            let animationId;
+            let sequenceTimers = [];
+            let fwSoundEnabled = true;
+            let audioCtx = null;
+
+            // =====================================================================
+            // 1. محرك صوت فرقعة وانفجار الصواريخ الواقعي (Web Audio API)
+            // =====================================================================
+            function unlockAndInitAudio() {
+                if (!audioCtx) {
+                    const AudioContext = window.AudioContext || window.webkitAudioContext;
+                    audioCtx = new AudioContext();
+                }
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                if (soundPromptBanner && audioCtx.state === 'running') {
+                    soundPromptBanner.style.display = 'none';
+                }
+            }
+
+            // صوت صفير انطلاق الصاروخ للأعلى
+            function playLaunchSound() {
+                if (!fwSoundEnabled || !audioCtx || audioCtx.state !== 'running') return;
+                try {
+                    const now = audioCtx.currentTime;
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(220, now);
+                    osc.frequency.exponentialRampToValueAtTime(750, now + 0.55);
+
+                    gain.gain.setValueAtTime(0.08, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.55);
+
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.56);
+                } catch (e) {}
+            }
+
+            // صوت فرقعة وانفجار الصاروخ القوي مع طقطقة الشرارات
+            function playExplosionSound(isBig = false) {
+                if (!fwSoundEnabled) return;
+                unlockAndInitAudio();
+                if (!audioCtx || audioCtx.state !== 'running') return;
+
+                try {
+                    const now = audioCtx.currentTime;
+                    const duration = isBig ? 1.4 : 0.95;
+                    const sampleRate = audioCtx.sampleRate;
+                    const bufferSize = Math.floor(sampleRate * duration);
+                    const noiseBuffer = audioCtx.createBuffer(1, bufferSize, sampleRate);
+                    const output = noiseBuffer.getChannelData(0);
+
+                    for (let i = 0; i < bufferSize; i++) {
+                        // ضوضاء انفجار مع طقطقة شرارات متقطعة
+                        const crackle = Math.random() > 0.96 ? (Math.random() * 2 - 1) * 1.4 : 0;
+                        output[i] = ((Math.random() * 2 - 1) * Math.exp(-i / (sampleRate * (isBig ? 0.35 : 0.22)))) + crackle * Math.exp(-i / (sampleRate * 0.5));
+                    }
+
+                    const whiteNoise = audioCtx.createBufferSource();
+                    whiteNoise.buffer = noiseBuffer;
+
+                    const filter = audioCtx.createBiquadFilter();
+                    filter.type = 'lowpass';
+                    filter.frequency.setValueAtTime(isBig ? 1400 : 1800, now);
+                    filter.frequency.exponentialRampToValueAtTime(140, now + duration);
+
+                    const gain = audioCtx.createGain();
+                    const volume = isBig ? 0.65 : 0.45;
+                    gain.gain.setValueAtTime(volume, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+
+                    whiteNoise.connect(filter);
+                    filter.connect(gain);
+                    gain.connect(audioCtx.destination);
+
+                    whiteNoise.start(now);
+                    whiteNoise.stop(now + duration);
+
+                    // ضربة بيس عميقة للانفجار (Boom)
+                    const boomOsc = audioCtx.createOscillator();
+                    const boomGain = audioCtx.createGain();
+                    boomOsc.type = 'triangle';
+                    boomOsc.frequency.setValueAtTime(isBig ? 120 : 150, now);
+                    boomOsc.frequency.exponentialRampToValueAtTime(28, now + 0.45);
+
+                    boomGain.gain.setValueAtTime(isBig ? 0.7 : 0.45, now);
+                    boomGain.gain.exponentialRampToValueAtTime(0.001, now + 0.45);
+
+                    boomOsc.connect(boomGain);
+                    boomGain.connect(audioCtx.destination);
+                    boomOsc.start(now);
+                    boomOsc.stop(now + 0.46);
+                } catch (e) {}
+            }
+
+            // تفعيل الصوت عند أول لمسة أو نقرة في أي مكان بالشاشة
+            ['click', 'touchstart', 'pointerdown'].forEach(evt => {
+                window.addEventListener(evt, () => {
+                    unlockAndInitAudio();
+                }, { once: false });
+            });
+
+            soundPromptBanner.addEventListener('click', (e) => {
+                e.stopPropagation();
+                unlockAndInitAudio();
+                launchRocket(width * 0.5, height * 0.3, '#fbbf24', true);
+            });
+
+            toggleFwSoundBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                unlockAndInitAudio();
+                fwSoundEnabled = !fwSoundEnabled;
+                fwSoundIcon.textContent = fwSoundEnabled ? '🔊' : '🔇';
+                fwSoundText.textContent = fwSoundEnabled ? 'صوت الفرقعة' : 'مكتوم';
+                if (fwSoundEnabled) {
+                    playExplosionSound(false);
+                }
+            });
+
+            // =====================================================================
+            // 2. تجهيز السماء والنجوم والألعاب النارية باسم "سلمى"
+            // =====================================================================
+            function resizeCanvas() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+                initStars();
+            }
+
+            function initStars() {
+                stars = [];
+                const starCount = Math.floor((width * height) / 4500);
+                for (let i = 0; i < starCount; i++) {
+                    stars.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        radius: Math.random() * 1.7 + 0.4,
+                        alpha: Math.random(),
+                        speed: Math.random() * 0.02 + 0.005
+                    });
+                }
+            }
+
+            class Rocket {
+                constructor(targetX, targetY, color, isNameRocket = false) {
+                    this.x = targetX + (Math.random() - 0.5) * 80;
+                    this.y = height + 10;
+                    this.targetX = targetX;
+                    this.targetY = targetY;
+                    this.color = color;
+                    this.isNameRocket = isNameRocket;
+                    this.speed = isNameRocket ? 11 : (Math.random() * 3 + 8.5);
+                    const angle = Math.atan2(targetY - this.y, targetX - this.x);
+                    this.vx = Math.cos(angle) * this.speed;
+                    this.vy = Math.sin(angle) * this.speed;
+                    this.trail = [];
+                    playLaunchSound();
+                }
+
+                update() {
+                    this.trail.push({ x: this.x, y: this.y });
+                    if (this.trail.length > 8) this.trail.shift();
+
+                    this.x += this.vx;
+                    this.y += this.vy;
+
+                    const dist = Math.hypot(this.targetX - this.x, this.targetY - this.y);
+                    if (dist < 18 || this.y <= this.targetY) {
+                        this.explode();
+                        return false;
+                    }
+                    return true;
+                }
+
+                draw() {
+                    ctx.save();
+                    for (let i = 0; i < this.trail.length; i++) {
+                        const pt = this.trail[i];
+                        ctx.beginPath();
+                        ctx.arc(pt.x, pt.y, (i / this.trail.length) * 2.5, 0, Math.PI * 2);
+                        ctx.fillStyle = this.color;
+                        ctx.globalAlpha = i / this.trail.length;
+                        ctx.fill();
+                    }
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, 3.2, 0, Math.PI * 2);
+                    ctx.fillStyle = '#ffffff';
+                    ctx.fill();
+                    ctx.restore();
+                }
+
+                explode() {
+                    playExplosionSound(this.isNameRocket);
+                    const count = this.isNameRocket ? 110 : 75;
+                    for (let i = 0; i < count; i++) {
+                        const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.2;
+                        const speed = Math.random() * (this.isNameRocket ? 6.5 : 5) + 1.5;
+                        particles.push({
+                            x: this.x,
+                            y: this.y,
+                            vx: Math.cos(angle) * speed,
+                            vy: Math.sin(angle) * speed,
+                            color: this.color,
+                            alpha: 1,
+                            decay: Math.random() * 0.015 + 0.012,
+                            size: Math.random() * 2.6 + 1.2
+                        });
+                    }
+                    if (this.isNameRocket) {
+                        createNameParticles();
+                    }
+                }
+            }
+
+            // رسم اسم "سلمى" بنقاط مضيئة تتلألأ في منتصف السماء
+            function createNameParticles() {
+                nameParticles = [];
+                const offCanvas = document.createElement('canvas');
+                const offCtx = offCanvas.getContext('2d');
+                offCanvas.width = width;
+                offCanvas.height = height;
+
+                const fontSize = Math.min(width * 0.24, 150);
+                offCtx.font = `bold ${fontSize}px 'Amiri', 'Tajawal', serif`;
+                offCtx.textAlign = 'center';
+                offCtx.textBaseline = 'middle';
+                offCtx.fillStyle = '#ffffff';
+                offCtx.fillText('سلمى', width / 2, height * 0.34);
+
+                const imgData = offCtx.getImageData(0, 0, width, height).data;
+                const step = width < 600 ? 4 : 5;
+                const colors = ['#fbbf24', '#fb7185', '#f472b6', '#fde047', '#ffffff'];
+
+                for (let y = 0; y < height; y += step) {
+                    for (let x = 0; x < width; x += step) {
+                        const idx = (y * width + x) * 4;
+                        if (imgData[idx + 3] > 128) {
+                            nameParticles.push({
+                                targetX: x,
+                                targetY: y,
+                                x: width / 2 + (Math.random() - 0.5) * 180,
+                                y: height * 0.34 + (Math.random() - 0.5) * 180,
+                                color: colors[Math.floor(Math.random() * colors.length)],
+                                size: Math.random() * 2.2 + 1.3,
+                                alpha: 0,
+                                twinkle: Math.random() * Math.PI * 2
+                            });
+                        }
+                    }
+                }
+            }
+
+            function launchRocket(tx, ty, color, isNameRocket = false) {
+                rockets.push(new Rocket(tx, ty, color, isNameRocket));
+            }
+
+            function animateSky() {
+                // مسح تدريجي لإبقاء ذيول الصواريخ ناعمة
+                ctx.fillStyle = 'rgba(5, 8, 22, 0.26)';
+                ctx.fillRect(0, 0, width, height);
+
+                // رسم النجوم المتلألئة في السماء الصافية
+                for (const s of stars) {
+                    s.alpha += s.speed;
+                    if (s.alpha > 1 || s.alpha < 0.15) s.speed = -s.speed;
+                    ctx.beginPath();
+                    ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(s.alpha)})`;
+                    ctx.fill();
+                }
+
+                // تحديث ورسم الصواريخ
+                rockets = rockets.filter(r => {
+                    r.draw();
+                    return r.update();
+                });
+
+                // تحديث ورسم شرارات الانفجار
+                particles = particles.filter(p => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.vy += 0.055; // جاذبية خفيفة للشرارات
+                    p.vx *= 0.985;
+                    p.alpha -= p.decay;
+
+                    if (p.alpha <= 0) return false;
+
+                    ctx.save();
+                    ctx.globalAlpha = p.alpha;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.fill();
+                    ctx.restore();
+                    return true;
+                });
+
+                // رسم نقاط اسم "سلمى" المضيئة في السماء
+                for (const np of nameParticles) {
+                    np.x += (np.targetX - np.x) * 0.08;
+                    np.y += (np.targetY - np.y) * 0.08;
+                    if (np.alpha < 1) np.alpha += 0.03;
+                    np.twinkle += 0.12;
+
+                    const glow = 0.7 + Math.sin(np.twinkle) * 0.3;
+                    ctx.save();
+                    ctx.globalAlpha = np.alpha * glow;
+                    ctx.beginPath();
+                    ctx.arc(np.x, np.y, np.size, 0, Math.PI * 2);
+                    ctx.fillStyle = np.color;
+                    ctx.shadowBlur = 10;
+                    ctx.shadowColor = np.color;
+                    ctx.fill();
+                    ctx.restore();
+                }
+
+                animationId = requestAnimationFrame(animateSky);
+            }
+
+            // تسلسل إطلاق الصواريخ الاحتفالية ثم رسم اسم سلمى وإظهار الزر
+            function startFireworksShow() {
+                sequenceTimers.forEach(t => clearTimeout(t));
+                sequenceTimers = [];
+                rockets = [];
+                particles = [];
+                nameParticles = [];
+                enterBtnContainer.classList.add('opacity-0', 'pointer-events-none', 'translate-y-6');
+                replayBtn.classList.add('hidden');
+
+                const palette = ['#fb7185', '#fbbf24', '#38bdf8', '#f472b6', '#a78bfa', '#34d399'];
+
+                // صواريخ تمهيدية متتالية
+                sequenceTimers.push(setTimeout(() => launchRocket(width * 0.25, height * 0.28, palette[0]), 300));
+                sequenceTimers.push(setTimeout(() => launchRocket(width * 0.75, height * 0.25, palette[1]), 850));
+                sequenceTimers.push(setTimeout(() => launchRocket(width * 0.35, height * 0.22, palette[2]), 1450));
+                sequenceTimers.push(setTimeout(() => launchRocket(width * 0.65, height * 0.30, palette[3]), 2000));
+
+                // الصاروخ الكبير في المنتصف الذي يفرقع ويرسم اسم "سلمى"
+                sequenceTimers.push(setTimeout(() => {
+                    launchRocket(width * 0.5, height * 0.34, '#fbbf24', true);
+                }, 2700));
+
+                // صواريخ احتفالية حول الاسم
+                sequenceTimers.push(setTimeout(() => {
+                    launchRocket(width * 0.2, height * 0.22, palette[4]);
+                    launchRocket(width * 0.8, height * 0.22, palette[0]);
+                }, 3600));
+
+                // إظهار زر "دوسي هنا يا سلمى" بعد اكتمال المشهد
+                sequenceTimers.push(setTimeout(() => {
+                    enterBtnContainer.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-6');
+                    replayBtn.classList.remove('hidden');
+                }, 4600));
+            }
+
+            // إمكانية إطلاق صواريخ إضافية بلمس السماء في أي وقت
+            canvas.addEventListener('click', (e) => {
+                unlockAndInitAudio();
+                const colors = ['#fb7185', '#fbbf24', '#f472b6', '#38bdf8', '#fde047'];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                launchRocket(e.clientX, e.clientY, randomColor, false);
+            });
+
+            replayBtn.addEventListener('click', () => {
+                unlockAndInitAudio();
+                startFireworksShow();
+            });
+
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+            animateSky();
+            startFireworksShow();
+
+            // =====================================================================
+            // 3. الانتقال للصفحة الثانية وتشغيل الأغنية الرومانسية تلقائياً
+            // =====================================================================
+            enterSiteBtn.addEventListener('click', () => {
+                // تشغيل الأغنية فوراً بضغطة الزر
+                bgMusic.volume = 0.85;
+                bgMusic.play().then(() => {
+                    musicIcon.textContent = '🎵';
+                    musicStatusText.textContent = 'الأغنية شغالة';
+                }).catch(() => {
+                    musicIcon.textContent = '🔇';
+                    musicStatusText.textContent = 'شغّلي الأغنية';
+                });
+
+                introSky.classList.add('opacity-0', 'pointer-events-none');
+                setTimeout(() => {
+                    introSky.style.display = 'none';
+                    cancelAnimationFrame(animationId);
+                    mainContent.classList.remove('hidden');
+                    createAmbientHearts();
+                    startCountdown();
+                    requestAnimationFrame(() => {
+                        mainContent.classList.remove('opacity-0');
+                    });
+                }, 850);
+            });
+
+            // التحكم في تشغيل/إيقاف الأغنية داخل الصفحة الثانية
+            musicControlBtn.addEventListener('click', () => {
+                if (bgMusic.paused) {
+                    bgMusic.play();
+                    musicIcon.textContent = '🎵';
+                    musicIcon.classList.add('animate-pulse');
+                    musicStatusText.textContent = 'الأغنية شغالة';
+                } else {
+                    bgMusic.pause();
+                    musicIcon.textContent = '⏸️';
+                    musicIcon.classList.remove('animate-pulse');
+                    musicStatusText.textContent = 'الأغنية متوقفة';
+                }
+            });
+
+            // =====================================================================
+            // 4. العداد التنازلي ليوم التقدم الرسمي (8 فبراير)
+            // =====================================================================
+            function startCountdown() {
+                const daysEl = document.getElementById('cd-days');
+                const hoursEl = document.getElementById('cd-hours');
+                const minutesEl = document.getElementById('cd-minutes');
+                const secondsEl = document.getElementById('cd-seconds');
+
+                function updateTimer() {
+                    const now = new Date();
+                    let targetYear = now.getFullYear();
+                    // شهر فبراير هو رقم 1 في JavaScript (0 = يناير، 1 = فبراير)
+                    let targetDate = new Date(targetYear, 1, 8, 0, 0, 0);
+
+                    if (now > targetDate) {
+                        targetDate = new Date(targetYear + 1, 1, 8, 0, 0, 0);
+                    }
+
+                    const diff = targetDate - now;
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                    const minutes = Math.floor((diff / 1000 / 60) % 60);
+                    const seconds = Math.floor((diff / 1000) % 60);
+
+                    daysEl.textContent = String(days).padStart(2, '0');
+                    hoursEl.textContent = String(hours).padStart(2, '0');
+                    minutesEl.textContent = String(minutes).padStart(2, '0');
+                    secondsEl.textContent = String(seconds).padStart(2, '0');
+                }
+
+                updateTimer();
+                setInterval(updateTimer, 1000);
+            }
+
+            // =====================================================================
+            // 5. ظهور الأقسام بانسيابية عند السحب لأسفل (IntersectionObserver)
+            // =====================================================================
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            document.querySelectorAll('.reveal-section').forEach(sec => {
+                revealObserver.observe(sec);
+            });
+
+            // =====================================================================
+            // 6. فتح وإغلاق كل ظرف على نفسه مباشرة مع تأثير تطاير القلوب
+            // =====================================================================
+            window.toggleEnvelope = function(cardElement) {
+                const body = cardElement.querySelector('.envelope-body');
+                const icon = cardElement.querySelector('.envelope-icon');
+                const isOpening = body.classList.contains('hidden');
+
+                if (isOpening) {
+                    body.classList.remove('hidden');
+                    icon.textContent = '📩';
+                    icon.classList.add('scale-110');
+                    cardElement.classList.add('border-amber-400/70', 'bg-[#21152c]/90');
+                    const rect = cardElement.getBoundingClientRect();
+                    spawnHeartBurst(rect.left + rect.width / 2, rect.top + 40, 10);
+                } else {
+                    body.classList.add('hidden');
+                    icon.textContent = '✉️';
+                    icon.classList.remove('scale-110');
+                    cardElement.classList.remove('border-amber-400/70', 'bg-[#21152c]/90');
+                }
+            };
+
+            // =====================================================================
+            // 7. عرض الـ 30 سبب يخليني أعشقك بجنون يا سلمى
+            // =====================================================================
+            const reasonsList = [
+                "عشان ضحكتك اللي أول ما بشوفها بنسى هموم الدنيا بحالها.",
+                "عشان طيبة قلبك اللي مفيش زيها في الدنيا ونقاء روحك.",
+                "عشان صوتك اللي بيرد فيا الروح ويطمن قلبي في ثانية.",
+                "عشان حنيتك وخوفك عليا كأني حتة منك بجد.",
+                "عشان عيونك اللي بسرح فيهم وبشوف فيهم مستقبلي كله.",
+                "عشان وجودك جنبي بيحسسني إني أملك الدنيا وما فيها.",
+                "عشان بتفهميني من غير ما أتكلم ومن نظرة عين واحدة.",
+                "عشان براءتك وعفويتك اللي بتخليني أعشقك أكتر كل يوم.",
+                "عشان عصبيتك الصغيرة اللي بتتحول لضحكة في لحظة وتخطف قلبي.",
+                "عشان إنتي أماني وسندي وضهري في وقت التعب والضيق.",
+                "عشان دعواتك ليا من قلبك اللي بحس ببركتها في كل خطوة.",
+                "عشان اهتمامك بأصغر تفاصيلي وحفظك لكل حاجة بحبها.",
+                "عشان كلامك اللي بيهون عليا أي صعب ويديني طاقة أكمل.",
+                "عشان صبرك عليا واحتوائك ليا في كل حالاتي.",
+                "عشان إنتي بنت أصول ومتربية وبتشرفيني قدام الدنيا كلها.",
+                "عشان لما بتزعلي أو تتقمصي بتبقي زي القمر وببقى نفسي أصالحك بالدنيا.",
+                "عشان إنتي صحبتي القريبة وبنتي المدللة وحبيبتي في نفس الوقت.",
+                "عشان غيرتك عليا اللي بتحسسني قد إيه أنا غالي عندك.",
+                "عشان كل مكان بنروحه سوا بيبقى ليه ذكرى محفورة في قلبي.",
+                "عشان إنتي العوض الجميل اللي ربنا جبر بيه خاطري.",
+                "عشان نظرتك ليا اللي مليانة حب وثقة وتقدير.",
+                "عشان بتخليني عايز أبقى أحسن راجل في الدنيا عشان أستاهلك.",
+                "عشان خفة دمك وهزارك اللي بيخلي الوقت معاكي يطير في ثانية.",
+                "عشان ملامحك الهادية اللي بتريح قلبي أول ما أبص في صورتك.",
+                "عشان وقفتك جنبي وتشجيعك ليا في كل حلم بسعى ليه.",
+                "عشان قلبك الأبيض اللي عمره ما شال كره ولا سواد لحد.",
+                "عشان إنتي أول حاجة بتيجي في بالي أول ما بفتح عيني الصبح.",
+                "عشان معاكِ عرفت يعني إيه حب حقيقي من غير شروط ولا حسابات.",
+                "عشان حلم بيتنا الصغير اللي هنبنيه سوا مالي حياتي فرحة.",
+                "وعشان ببساطة.. إنتي سلمى، ومفيش في الدنيا اتنين منك يا عمري كله ❤️"
+            ];
+
+            const reasonsGrid = document.getElementById('reasons-grid');
+            const toggleReasonsBtn = document.getElementById('toggle-reasons-btn');
+            let showingAllReasons = false;
+
+            function renderReasons() {
+                reasonsGrid.innerHTML = '';
+                const limit = showingAllReasons ? reasonsList.length : 10;
+
+                for (let i = 0; i < limit; i++) {
+                    const card = document.createElement('div');
+                    card.className = 'glass-card rounded-2xl p-5 border border-rose-500/25 hover:border-amber-400/50 transition-all duration-300 flex items-start gap-3.5 text-right cursor-pointer';
+                    card.onclick = (e) => spawnHeartBurst(e.clientX, e.clientY, 5);
+                    card.innerHTML = `
+                        <span class="flex-shrink-0 w-9 h-9 rounded-full bg-gradient-to-br from-rose-500 to-amber-500 text-white font-extrabold text-sm flex items-center justify-center shadow-md">
+                            ${i + 1}
+                        </span>
+                        <p class="text-slate-200 text-sm sm:text-base leading-relaxed pt-1">
+                            ${reasonsList[i]}
+                        </p>
+                    `;
+                    reasonsGrid.appendChild(card);
+                }
+
+                toggleReasonsBtn.textContent = showingAllReasons
+                    ? 'إخفاء جزء من القائمة ⬆️'
+                    : 'اعرضي باقي الـ 30 سبب كلهم 🌹';
+            }
+
+            toggleReasonsBtn.addEventListener('click', (e) => {
+                showingAllReasons = !showingAllReasons;
+                renderReasons();
+                spawnHeartBurst(e.clientX, e.clientY, 8);
+            });
+
+            renderReasons();
+
+            // =====================================================================
+            // 8. مقياس حبك في قلبي التفاعلي
+            // =====================================================================
+            let lovePercent = 100;
+            let barWidth = 35;
+            const boostLoveBtn = document.getElementById('boost-love-btn');
+            const loveMeterValue = document.getElementById('love-meter-value');
+            const loveMeterBar = document.getElementById('love-meter-bar');
+            const loveMeterMsg = document.getElementById('love-meter-msg');
+
+            boostLoveBtn.addEventListener('click', (e) => {
+                lovePercent += 250;
+                barWidth = Math.min(100, barWidth + 15);
+                loveMeterBar.style.width = `${barWidth}%`;
+
+                if (lovePercent >= 1500) {
+                    loveMeterValue.textContent = '∞ ما لا نهاية ❤️';
+                    loveMeterMsg.textContent = 'العداد انفجر من كتر حبي ليكي يا سلمى! مفيش أرقام تكفيكي 😍🔥';
+                    spawnHeartBurst(e.clientX || window.innerWidth / 2, e.clientY || window.innerHeight / 2, 18);
+                } else {
+                    loveMeterValue.textContent = `${lovePercent}%`;
+                    loveMeterMsg.textContent = 'لسه بيزيد.. دوسي تاني عشان تعرفي أكتر! 💕';
+                    spawnHeartBurst(e.clientX || window.innerWidth / 2, e.clientY || window.innerHeight / 2, 6);
+                }
+            });
+
+            // =====================================================================
+            // 9. سؤال العمر التفاعلي (الزر الهارب + الاحتفال بالموافقة)
+            // =====================================================================
+            const noRunawayBtn = document.getElementById('no-runaway-btn');
+            const yesForeverBtn = document.getElementById('yes-forever-btn');
+            const proposalAcceptedBox = document.getElementById('proposal-accepted-box');
+
+            function moveNoButton() {
+                const maxX = 110;
+                const maxY = 55;
+                const randomX = (Math.random() - 0.5) * 2 * maxX;
+                const randomY = (Math.random() - 0.5) * 2 * maxY;
+                noRunawayBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            }
+
+            noRunawayBtn.addEventListener('mouseenter', moveNoButton);
+            noRunawayBtn.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                moveNoButton();
+            }, { passive: false });
+            noRunawayBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                moveNoButton();
+            });
+
+            yesForeverBtn.addEventListener('click', () => {
+                noRunawayBtn.style.display = 'none';
+                yesForeverBtn.textContent = 'ربنا يديمك نعمة في حياتي 💍❤️';
+                proposalAcceptedBox.classList.remove('hidden');
+                for (let i = 0; i < 35; i++) {
+                    setTimeout(() => {
+                        spawnHeartBurst(
+                            Math.random() * window.innerWidth,
+                            Math.random() * window.innerHeight * 0.8,
+                            3
+                        );
+                    }, i * 60);
+                }
+            });
+
+            // =====================================================================
+            // 10. تطاير قلوب ذهبية ووردية عند لمس أو الضغط في أي مكان بالصفحة الثانية
+            // =====================================================================
+            function spawnHeartBurst(x, y, count = 4) {
+                const icons = ['❤️', '💖', '✨', '💍', '🌹'];
+                for (let i = 0; i < count; i++) {
+                    const heart = document.createElement('span');
+                    heart.className = 'click-heart text-xl sm:text-2xl select-none';
+                    heart.textContent = icons[Math.floor(Math.random() * icons.length)];
+                    heart.style.left = `${x + (Math.random() - 0.5) * 50}px`;
+                    heart.style.top = `${y + (Math.random() - 0.5) * 30}px`;
+                    document.body.appendChild(heart);
+                    setTimeout(() => heart.remove(), 1200);
+                }
+            }
+
+            mainContent.addEventListener('click', (e) => {
+                if (e.target.tagName !== 'BUTTON') {
+                    spawnHeartBurst(e.clientX, e.clientY, 3);
+                }
+            });
+
+            function createAmbientHearts() {
+                const container = document.getElementById('floating-hearts-bg');
+                const symbols = ['❤', '🌸', '✨', '💕'];
+                
+                for (let i = 0; i < 16; i++) {
+                    const el = document.createElement('div');
+                    el.textContent = symbols[i % symbols.length];
+                    el.className = 'absolute text-rose-300/35 select-none pointer-events-none';
+                    el.style.left = `${Math.random() * 95}%`;
+                    el.style.top = `${Math.random() * 95}%`;
+                    el.style.fontSize = `${Math.random() * 16 + 12}px`;
+                    el.style.animation = `floatSlow ${Math.random() * 4 + 4}s ease-in-out infinite`;
+                    el.style.animationDelay = `${Math.random() * 3}s`;
+                    container.appendChild(el);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
